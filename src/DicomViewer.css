@@ -1,0 +1,93 @@
+/* DicomViewer.css */
+.dicom-viewer-container {
+  display: flex;
+  flex-direction: column;
+  color: #E0E0E0;
+  background-color: #121212;
+  font-family: 'Arial', sans-serif;
+  align-items: center;
+}
+
+.viewer-section {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.drag-drop-area {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  color: #666;
+  font-weight: bold;
+}
+
+.dicom-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #444;
+  padding: 20px;
+  margin: 10px;
+}
+
+.image-viewer {
+  width: 512px;
+  height: 512px;
+  position: relative;
+  border: 1px solid #575757;
+  background-color: #000;
+}
+
+.frame-controls, .bottom-section {
+  text-align: center;
+}
+
+.frame-button {
+  background-color: #333;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.frame-button:hover {
+  background-color: #5656f2;
+}
+
+.file-selector {
+  color: #fff;
+  background-color: #333;
+  border: 1px solid #666;
+}
+
+.drop-zone {
+  width: 200px;
+  height: 50px;
+  border: 2px dashed #555;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.analysis-button {
+  background-color: #4A148C;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.analysis-button:hover {
+  background-color: #7B1FA2;
+}
+
+.result-image {
+    position: absolute;
+    opacity: 20%;
+}
