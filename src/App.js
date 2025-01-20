@@ -44,15 +44,17 @@ const theme = createTheme({
 const useStyles = makeStyles({
     title: {
         flexGrow: 1,
+        color: '#ffffff',
+
     },
     drawerList: {
         width: 250,
-        backgroundColor: '#3b3f87',
         color: 'white',
         height: '100%',
     },
     dialogContent: {
         display: 'flex',
+        color: 'white',
         flexDirection: 'column',
         gap: '16px',
     },
@@ -73,7 +75,7 @@ const DicomFileList = () => {
                 const response = await api.get('/registry/dicom-file/');
                 setFiles(response.data.results);
             } catch (error) {
-                console.error('Error fetching DICOM files:', error);
+                console.error('Error fetching DICOM files:', error.response);
             }
         };
         fetchFiles();
@@ -103,7 +105,19 @@ const DicomFileUpload = () => {
             await api.post('/registry/dicom-file/upload/', formData, { headers: { 'Content-Type': 'multipart/form-data' } });
             alert('DICOM file uploaded successfully');
         } catch (error) {
-            alert('Failed to upload DICOM file');
+            console.log('Failed to upload DICOM file');
+            if (error.response && error.response.data) {
+                // Create a Blob from the error response data
+                const blob = new Blob([error.response.data], { type: 'text/html' });
+
+                // Create a temporary link element to trigger the download
+                const link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = 'error_response.html';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
         }
     };
 

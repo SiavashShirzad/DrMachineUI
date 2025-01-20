@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CircleDrawer = ({ x, y, radius }) => {
+const CircleDraw = ({ x, y, radius }) => {
   // Styles for the container div
   const containerStyle = {
     position: 'absolute', // This makes it a reference for the absolute positioning of the circle
@@ -27,4 +27,4 @@ const CircleDrawer = ({ x, y, radius }) => {
   );
 };
 
-export default CircleDrawer;
+export default CircleDraw;
